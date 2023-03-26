@@ -24,8 +24,10 @@ redis.set("product", product);
  */
 function getRedisURI() {
   if (process.argv.length > 2) {
+    console.log("1getRedisURI() " + "redis://"+process.argv[2]+":6379");
     return "redis://"+process.argv[2]+":6379";
   } else {
+    console.log("2getRedisURI() redis://localhost:6379");
     return "redis://localhost:6379";
   }
 }
