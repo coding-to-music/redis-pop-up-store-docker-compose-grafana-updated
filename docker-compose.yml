@@ -26,5 +26,5 @@ services:
       - GF_USERS_DEFAULT_THEME=light
     volumes:
       - ./provisioning:/etc/grafana/provisioning
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    depends_on:
+      - redis
