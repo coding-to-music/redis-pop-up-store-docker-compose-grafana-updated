@@ -1,3 +1,40 @@
+# redis-pop-up-store-docker-compose-grafana-updated
+
+# 🚀 Pop-up store demo using @RedisTimeSeries, @RedisGears, and Redis plugins for Grafana 🚀
+
+https://github.com/coding-to-music/redis-pop-up-store-docker-compose-grafana-updated
+
+From / By https://github.com/RedisGrafana/redis-pop-up-store (This is the original)
+
+https://github.com/ajeetraina/redis-pop-up-store  (this is 11 commits back)
+
+https://redis.com/blog/3-real-life-apps-built-with-redis-data-source-for-grafana/
+
+https://github.com/ajeetraina/awesome-compose (interesting, related)
+
+
+## Environment variables:
+
+```java
+
+```
+
+## user interfaces:
+
+- Grafana http://localhost:3000
+
+## GitHub
+
+```java
+git init
+git add .
+git remote remove origin
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:coding-to-music/redis-pop-up-store-docker-compose-grafana-updated.git
+git push -u origin main
+```
+
 # Pop-up store demo using RedisTimeSeries, RedisGears and Redis plugins for Grafana</h1>
 
 ![Pop-up](https://github.com/RedisGrafana/redis-pop-up-store/blob/master/images/pop-up-dashboard.png)

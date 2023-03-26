@@ -6,8 +6,9 @@
   },
   "description": "Pop-up store using RedisTimeSeries, RedisGears and Redis plugins for Grafana",
   "license": "Apache-2.0",
-  "name": "redis-pop-up-store",
+  "name": "redis-pop-up-store-docker-compose-grafana-updated",
   "scripts": {
+    "deploy": "git add . && git commit -m Build && git push",
     "docker:build": "docker-compose build",
     "redis-cli": "docker exec -it redis redis-cli",
     "simulation": "npm i; node src/pop-up-store.js",
