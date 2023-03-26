@@ -8,21 +8,21 @@ const Redis = require("ioredis");
 /**
  * You can also specify connection options as a redis:// URL or rediss:// URL when using TLS encryption:
  */
-// const redis = new Redis(getRedisURI());
+const redis = new Redis(getRedisURI());
 // const redis = new Redis("localhost:6379");
 
 // const redis = new Redis(getRedisURI());
 
-const redis = new Redis({
-  host: 'localhost',
-  port: 6379
-});
+// const redis = new Redis({
+//   host: 'localhost',
+//   port: 6379
+// });
 
 redis.ping((err, result) => {
   if (err) {
     console.error(err);
   } else {
-    console.log(`Redis connection successful. Response: ${result}`);
+    console.log(`XXXXXX Redis connection successful. Response: ${result}`);
   }
 });
 
