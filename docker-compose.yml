@@ -1,8 +1,8 @@
 version: "3.5"
 
-networks:
-  default:
-    name: redis-pop-up-store-network
+# networks:
+#   default:
+#     name: redis-pop-up-store-network
 
 services:
   app:
@@ -15,8 +15,8 @@ services:
   redis:
     container_name: redis
     image: redislabs/redismod
-    environment:
-      REDIS_PASSWORD: your_redis_password
+    # environment:
+    #   REDIS_PASSWORD: your_redis_password
     ports:
       - "6379:6379"
 
