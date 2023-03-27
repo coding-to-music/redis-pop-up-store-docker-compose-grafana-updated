@@ -7,4 +7,4 @@ docker rm $(docker ps -aq)
 docker-compose down --volumes
 docker volume prune -f
 
-docker image prune -a
+# docker image prune -a
