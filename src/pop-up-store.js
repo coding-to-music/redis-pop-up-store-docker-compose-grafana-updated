@@ -11,6 +11,9 @@ const Redis = require("ioredis");
  * You can also specify connection options as a redis:// URL or rediss:// URL when using TLS encryption:
  */
 const URI = getRedisURI();
+
+console.log(`XXXXXXZZZZZZZZ URI = ` + URI);
+
 const redis = new Redis(URI);
 
 // const redis = new Redis(getRedisURI());

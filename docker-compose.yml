@@ -11,8 +11,6 @@ services:
     image: ghcr.io/redisgrafana/pop-up-store:latest
     depends_on:
       - redis
-    # networks:
-    #   redis-pop-up-store-network
 
   redis:
     container_name: redis
@@ -21,8 +19,6 @@ services:
       REDIS_PASSWORD: your_redis_password
     ports:
       - "6379:6379"
-    # networks:
-    #   redis-pop-up-store-network
 
   redis-insight:
     container_name: redis-insight
@@ -36,8 +32,8 @@ services:
       - REDIS_0_PASSWORD=your_redis_password
       - REDIS_0_TLS=false
       - REDIS_0_NAME=MyRedis
-    # networks:
-    #   redis-pop-up-store-network
+    depends_on:
+      - redis
 
   # grafana:
   #   container_name: grafana
