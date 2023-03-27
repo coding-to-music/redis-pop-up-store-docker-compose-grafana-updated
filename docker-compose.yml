@@ -3,7 +3,6 @@ version: "3.5"
 networks:
   default:
     name: redis-pop-up-store-network
-  # redis-pop-up-store-network
 
 services:
   app:

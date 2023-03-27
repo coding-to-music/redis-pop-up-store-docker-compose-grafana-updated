@@ -10,17 +10,16 @@ const Redis = require("ioredis");
 /**
  * You can also specify connection options as a redis:// URL or rediss:// URL when using TLS encryption:
  */
-const redis = new Redis(getRedisURI());
+const URI = getRedisURI();
+const redis = new Redis(URI);
+
+// const redis = new Redis(getRedisURI());
 // const redis = new Redis("localhost:6379");
 
 // const redis = new Redis(getRedisURI());
 
-// const redis = new Redis({
-//   host: 'localhost',
-//   port: 6379
-// });
 
-console.log(`XXXXXXZZZZZZZZ In the app`);
+console.log(`XXXXXXZZZZZZZZ BEGIN redis.ping`);
 
 
 redis.ping((err, result) => {
@@ -32,13 +31,35 @@ redis.ping((err, result) => {
   }
 });
 
+console.log(`XXXXXXZZZZZZZZ END redis.ping`);
+
+const redisClient = new Redis({
+  host: 'localhost',
+  port: 6379
+});
+
+console.log(`XXXXXXZZZZZZZZ BEGIN redisClient.ping`);
+
+
+redisClient.ping((err, result) => {
+  if (err) {
+    console.log(`XXXXXXYYYYYYY Redis connection error. Response: ${err}`);
+    console.error(err);
+  } else {
+    console.log(`XXXXXX Redis connection successful. Response: ${result}`);
+  }
+});
+
+console.log(`XXXXXXZZZZZZZZ END redisClient.ping`);
+
+
 /**
  * There are 10000 products on sale today
  *
  * @see https://redis.io/commands/set
  */
 const product = 10000;
-redis.set("product", product);
+redisClient.set("product", product);
 
 /**
  * Get Redis host from first argument (optional)
@@ -55,7 +76,9 @@ function getRedisURI() {
     return "redis://"+process.argv[2]+":6379";
   } else {
     console.log("2getRedisURI() redis://localhost:6379");
-    return "redis://localhost:6379";
+    
+    return "http://[::1]:6379";
+    // return "redis://localhost:6379";
   }
 }
 
@@ -81,7 +104,7 @@ function submitOrder(err, result) {
    * @see https://redis.io/commands/xadd
    */
   setTimeout(function () {
-    redis.xadd("orders", "*", "id", genId(), "customer", result);
+    redisClient.xadd("orders", "*", "id", genId(), "customer", result);
   }, Math.floor(Math.random() * 1000));
 }
 
@@ -92,7 +115,7 @@ function newCustomer() {
   /**
    * Registering new customer
    */
-  redis.xadd("queue:customers", "*", "id", genId(), submitOrder);
+  redisClient.xadd("queue:customers", "*", "id", genId(), submitOrder);
 
   /**
    * Waiting for the next

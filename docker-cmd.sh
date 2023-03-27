@@ -21,6 +21,6 @@ echo "Starting XXXXXXXYYYYYYYY"
 # cat gears/orders.py | redis-cli -h redis -x RG.PYEXECUTE
 
 # Run Simulation
-# echo "Starting Customers & Orders simulation"
+echo "Starting Customers & Orders simulation"
 # npm run simulation redis
-# npm run simulation 
+npm run simulation 
