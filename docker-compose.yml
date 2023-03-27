@@ -1,4 +1,9 @@
-version: "3.4"
+version: "3.5"
+
+networks:
+  default:
+    name: redis-pop-up-store-network
+  # redis-pop-up-store-network
 
 services:
   app:
@@ -7,6 +12,8 @@ services:
     image: ghcr.io/redisgrafana/pop-up-store:latest
     depends_on:
       - redis
+    # networks:
+    #   redis-pop-up-store-network
 
   redis:
     container_name: redis
@@ -15,6 +22,8 @@ services:
       REDIS_PASSWORD: your_redis_password
     ports:
       - "6379:6379"
+    # networks:
+    #   redis-pop-up-store-network
 
   redis-insight:
     container_name: redis-insight
@@ -28,19 +37,23 @@ services:
       - REDIS_0_PASSWORD=your_redis_password
       - REDIS_0_TLS=false
       - REDIS_0_NAME=MyRedis
+    # networks:
+    #   redis-pop-up-store-network
 
-  grafana:
-    container_name: grafana
-    image: ghcr.io/redisgrafana/redis-app:latest
-    ports:
-      - "3000:3000"
-    environment:
-      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
-      - GF_AUTH_ANONYMOUS_ENABLED=true
-      - GF_AUTH_BASIC_ENABLED=false
-      - GF_ENABLE_GZIP=true
-      - GF_USERS_DEFAULT_THEME=light
-    volumes:
-      - ./provisioning:/etc/grafana/provisioning
-    depends_on:
-      - redis
+  # grafana:
+  #   container_name: grafana
+  #   image: ghcr.io/redisgrafana/redis-app:latest
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+  #     - GF_AUTH_ANONYMOUS_ENABLED=true
+  #     - GF_AUTH_BASIC_ENABLED=false
+  #     - GF_ENABLE_GZIP=true
+  #     - GF_USERS_DEFAULT_THEME=light
+  #   volumes:
+  #     - ./provisioning:/etc/grafana/provisioning
+  #   depends_on:
+  #     - redis
+  #   networks:
+  #     redis-pop-up-store-network
