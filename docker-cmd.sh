@@ -1,7 +1,7 @@
 echo "Starting XXXXXXX"
 
 echo "XXXXXXXYYYYYYYY BEGIN Sleep"
-sleep(5);
+sleep 5
 echo "XXXXXXXYYYYYYYY END Sleep"
 
 redis-cli -h localhost PING
