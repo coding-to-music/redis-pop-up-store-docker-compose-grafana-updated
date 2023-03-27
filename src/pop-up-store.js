@@ -18,6 +18,9 @@ const redis = new Redis(getRedisURI());
 //   port: 6379
 // });
 
+console.log(`XXXXXXZZZZZZZZ In the app`);
+
+
 redis.ping((err, result) => {
   if (err) {
     console.log(`XXXXXXYYYYYYY Redis connection error. Response: ${err}`);
