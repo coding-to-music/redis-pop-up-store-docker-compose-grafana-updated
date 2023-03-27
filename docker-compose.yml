@@ -5,12 +5,12 @@ networks:
     name: redis-pop-up-store-network
 
 services:
-  # app:
-  #   container_name: pop-up-store-app
-  #   build: .
-  #   image: ghcr.io/redisgrafana/pop-up-store:latest
-  #   depends_on:
-  #     - redis
+  app:
+    container_name: pop-up-store-app
+    build: .
+    image: ghcr.io/redisgrafana/pop-up-store:latest
+    depends_on:
+      - redis
 
   redis:
     container_name: redis
