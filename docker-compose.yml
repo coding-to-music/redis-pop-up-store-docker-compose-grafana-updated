@@ -2,6 +2,7 @@ version: "3.4"
 
 services:
   app:
+    container_name: pop-up-store-app
     build: .
     image: ghcr.io/redisgrafana/pop-up-store:latest
     depends_on:
@@ -16,6 +17,7 @@ services:
       - "6379:6379"
 
   redis-insight:
+    container_name: redis-insight
     image: redislabs/redisinsight:latest
     ports:
       - "8001:8001"
