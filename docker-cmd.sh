@@ -1,8 +1,8 @@
-echo "Starting XXXXXXX"
+echo "Starting XXXXXXX docker-cmd"
 
-echo "XXXXXXXYYYYYYYY BEGIN Sleep"
+echo "XXXXXXXYYYYYYYY docker-cmd BEGIN Sleep"
 sleep 5
-echo "XXXXXXXYYYYYYYY END Sleep"
+echo "XXXXXXXYYYYYYYY docker-cmd END Sleep"
 
 redis-cli -h localhost PING
 

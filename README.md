@@ -86,3 +86,9 @@ To start `redis-cli` and look at the keys please run
 ```
 npm run redis-cli
 ```
+
+## find the ip address inside the docker container for redis
+
+```
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' redis
+```
