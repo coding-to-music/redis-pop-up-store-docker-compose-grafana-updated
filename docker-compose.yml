@@ -10,8 +10,22 @@ services:
   redis:
     container_name: redis
     image: redislabs/redismod
+    environment:
+      REDIS_PASSWORD: your_redis_password
     ports:
       - "6379:6379"
+
+  redis-insight:
+    image: redislabs/redisinsight:latest
+    ports:
+      - "8001:8001"
+    restart: always
+    environment:
+      - REDIS_0_HOST=redis
+      - REDIS_0_PORT=6379
+      - REDIS_0_PASSWORD=your_redis_password
+      - REDIS_0_TLS=false
+      - REDIS_0_NAME=MyRedis
 
   grafana:
     container_name: grafana
