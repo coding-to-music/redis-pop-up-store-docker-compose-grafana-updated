@@ -1,8 +1,14 @@
+#!/bin/bash
+
 echo "Starting XXXXXXX docker-cmd"
 
 echo "XXXXXXXYYYYYYYY docker-cmd BEGIN Sleep"
 sleep 5
 echo "XXXXXXXYYYYYYYY docker-cmd END Sleep"
+
+hostname -I
+
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' redis
 
 redis-cli -h localhost PING
 
