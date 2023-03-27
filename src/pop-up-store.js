@@ -20,6 +20,7 @@ const redis = new Redis(getRedisURI());
 
 redis.ping((err, result) => {
   if (err) {
+    console.log(`XXXXXXYYYYYYY Redis connection error. Response: ${err}`);
     console.error(err);
   } else {
     console.log(`XXXXXX Redis connection successful. Response: ${result}`);
