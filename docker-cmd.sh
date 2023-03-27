@@ -1,16 +1,16 @@
 echo "Starting XXXXXXX"
 
-redis-cli PING
+redis-cli -h localhost PING
 
-redis-cli DBSIZE
+redis-cli -h localhost DBSIZE
 
-redis-cli --stat
+redis-cli -h localhost --stat
 
-redis-cli --bigkeys
+redis-cli -h localhost --bigkeys
 
-redis-cli --scan | head -10
+redis-cli -h localhost --scan | head -10
 
-redis-cli --intrinsic-latency 5
+redis-cli -h localhost --intrinsic-latency 5
 
 echo "Starting XXXXXXXYYYYYYYY"
 
