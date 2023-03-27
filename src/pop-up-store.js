@@ -1,3 +1,5 @@
+console.log("Now entering pop-up-store.js")
+
 /**
  * A robust, performance-focused and full-featured Redis client for Node.js.
  *

@@ -1,3 +1,4 @@
+echo "Starting XXXXXXX"
 
 redis-cli PING
 
@@ -11,13 +12,15 @@ redis-cli --scan | head -10
 
 redis-cli --intrinsic-latency 5
 
+echo "Starting XXXXXXXYYYYYYYY"
 
 # Install StreamReader for Time-Series
-cat gears/timeseries.py | redis-cli -h redis -x RG.PYEXECUTE
+# cat gears/timeseries.py | redis-cli -h redis -x RG.PYEXECUTE
 
 # Install StreamReader for Orders
-cat gears/orders.py | redis-cli -h redis -x RG.PYEXECUTE
+# cat gears/orders.py | redis-cli -h redis -x RG.PYEXECUTE
 
 # Run Simulation
-echo "Starting Customers & Orders simulation"
-npm run simulation redis
+# echo "Starting Customers & Orders simulation"
+# npm run simulation redis
+# npm run simulation 
