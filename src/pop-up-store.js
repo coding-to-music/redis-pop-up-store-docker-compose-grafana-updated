@@ -37,7 +37,7 @@ redis.ping((err, result) => {
 console.log(`XXXXXXZZZZZZZZ END redis.ping`);
 
 const redisClient = new Redis({
-  host: 'localhost',
+  host: 'redis',
   port: 6379
 });
 
@@ -69,6 +69,7 @@ redisClient.set("product", product);
  * argv is: [ '/usr/local/bin/node', '/app/src/pop-up-store.js', '...' ]
  */
 function getRedisURI() {
+  var url = "";
   if (process.argv.length > 2) {
     console.log("1getRedisURI() " + "redis://"+process.argv[2]+":6379");
     console.log("1getRedisURI() process.argv[0] = " + process.argv[0]);
@@ -76,11 +77,17 @@ function getRedisURI() {
     console.log("1getRedisURI() process.argv[2] = " + process.argv[2]);
     // console.log("1getRedisURI() process.argv[3] = " + process.argv[3]);
     // return "redis://localhost:6379";
-    return "redis://"+process.argv[2]+":6379";
+    url = "redis://"+process.argv[2]+":6379";
+    console.log("1getRedisURI() url = " + url);
+    return url
   } else {
     console.log("2getRedisURI() redis://localhost:6379");
+
+    url = "redis://redis:6379";
+    console.log("2getRedisURI() url = " + url);
+    return url
     
-    return "http://[::1]:6379";
+    // return "http://[::1]:6379";
     // return "redis://localhost:6379";
   }
 }
