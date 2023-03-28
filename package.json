@@ -12,6 +12,7 @@
     "docker:build": "docker-compose build",
     "redis-cli": "docker exec -it redis redis-cli",
     "simulation": "npm i; node src/pop-up-store.js",
+    "ioredis-example": "node ./ioredis-example.js",
     "start": "docker-compose pull && docker-compose up --build --remove-orphans",
     "stop": "docker-compose down",
     "clean": "bash ./purge-all.sh",
