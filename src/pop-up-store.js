@@ -12,7 +12,7 @@ const Redis = require("ioredis");
  */
 const URI = getRedisURI();
 
-console.log(`XXXXXXZZZZZZZZ URI = ` + URI);
+console.log(`pop-up-store.js: XXXXXXZZZZZZZZ URI = ` + URI);
 
 const redis = new Redis(URI);
 
@@ -22,27 +22,26 @@ const redis = new Redis(URI);
 // const redis = new Redis(getRedisURI());
 
 
-console.log(`XXXXXXZZZZZZZZ BEGIN redis.ping`);
+console.log(`pop-up-store.js: XXXXXXZZZZZZZZ BEGIN redis.ping`);
 
 
 redis.ping((err, result) => {
   if (err) {
-    console.log(`XXXXXXYYYYYYY Redis connection error. Response: ${err}`);
+    console.log(`pop-up-store.js: XXXXXXYYYYYYY Redis connection error. Response: ${err}`);
     console.error(err);
   } else {
-    console.log(`XXXXXX Redis connection successful. Response: ${result}`);
+    console.log(`pop-up-store.js: XXXXXX Redis connection successful. Response: ${result}`);
   }
 });
 
-console.log(`XXXXXXZZZZZZZZ END redis.ping`);
+console.log(`pop-up-store.js: XXXXXXZZZZZZZZ END redis.ping`);
 
 const redisClient = new Redis({
   host: 'redis',
   port: 6379
 });
 
-console.log(`XXXXXXZZZZZZZZ BEGIN redisClient.ping`);
-
+console.log(`pop-up-store.js: XXXXXXZZZZZZZZ BEGIN redisClient.ping`);
 
 redisClient.ping((err, result) => {
   if (err) {
@@ -62,6 +61,7 @@ console.log(`XXXXXXZZZZZZZZ END redisClient.ping`);
  * @see https://redis.io/commands/set
  */
 const product = 10000;
+console.log("pop-up-store.js: set product: " + product);
 redisClient.set("product", product);
 
 /**
