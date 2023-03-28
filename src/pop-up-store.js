@@ -71,20 +71,20 @@ redisClient.set("product", product);
 function getRedisURI() {
   var url = "";
   if (process.argv.length > 2) {
-    console.log("1getRedisURI() " + "redis://"+process.argv[2]+":6379");
-    console.log("1getRedisURI() process.argv[0] = " + process.argv[0]);
-    console.log("1getRedisURI() process.argv[1] = " + process.argv[1]);
-    console.log("1getRedisURI() process.argv[2] = " + process.argv[2]);
+    console.log("pop-up-store.js: 1getRedisURI() " + "redis://"+process.argv[2]+":6379");
+    console.log("pop-up-store.js: 1getRedisURI() process.argv[0] = " + process.argv[0]);
+    console.log("pop-up-store.js: 1getRedisURI() process.argv[1] = " + process.argv[1]);
+    console.log("pop-up-store.js: 1getRedisURI() process.argv[2] = " + process.argv[2]);
     // console.log("1getRedisURI() process.argv[3] = " + process.argv[3]);
     // return "redis://localhost:6379";
     url = "redis://"+process.argv[2]+":6379";
-    console.log("1getRedisURI() url = " + url);
+    console.log("pop-up-store.js: 1getRedisURI() RETURN url = " + url);
     return url
   } else {
-    console.log("2getRedisURI() redis://localhost:6379");
+    console.log("pop-up-store.js: 2getRedisURI() redis://localhost:6379");
 
     url = "redis://redis:6379";
-    console.log("2getRedisURI() url = " + url);
+    console.log("pop-up-store.js: 2getRedisURI() RETURN url = " + url);
     return url
     
     // return "http://[::1]:6379";
@@ -114,7 +114,9 @@ function submitOrder(err, result) {
    * @see https://redis.io/commands/xadd
    */
   setTimeout(function () {
-    redisClient.xadd("orders", "*", "id", genId(), "customer", result);
+    var newId = genId();
+    console.log("pop-up-store.js: submitOrder xadd newId = " + newId + " result: " + result);
+    redisClient.xadd("orders", "*", "id", newId, "customer", result);
   }, Math.floor(Math.random() * 1000));
 }
 
