@@ -125,16 +125,19 @@ function newCustomer() {
   /**
    * Registering new customer
    */
+  console.log("pop-up-store.js: newCustomer() redisClient ");
   redisClient.xadd("queue:customers", "*", "id", genId(), submitOrder);
 
   /**
    * Waiting for the next
    */
+  console.log("pop-up-store.js: newCustomer() setTimeout");
   setTimeout(newCustomer, Math.floor(Math.random() * 1000));
 }
 
 /**
  * Sale started
  */
-console.log("Now running simulation...")
+console.log("Now running simulation...");
+console.log("pop-up-store.js: Running newCustomer()");
 newCustomer();
