@@ -126,7 +126,9 @@ function newCustomer() {
    * Registering new customer
    */
   console.log("pop-up-store.js: newCustomer() redisClient ");
-  redisClient.xadd("queue:customers", "*", "id", genId(), submitOrder);
+  var newId = genId();
+  console.log("pop-up-store.js: newCustomer() redisClient newId = " + newId);
+  redisClient.xadd("queue:customers", "*", "id", newId, submitOrder);
 
   /**
    * Waiting for the next
