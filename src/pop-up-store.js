@@ -45,10 +45,10 @@ console.log(`pop-up-store.js: XXXXXXZZZZZZZZ BEGIN redisClient.ping`);
 
 redisClient.ping((err, result) => {
   if (err) {
-    console.log(`XXXXXXYYYYYYY Redis connection error. Response: ${err}`);
+    console.log(`pop-up-store.js: XXXXXXYYYYYYY Redis connection error. Response: ${err}`);
     console.error(err);
   } else {
-    console.log(`XXXXXX Redis connection successful. Response: ${result}`);
+    console.log(`pop-up-store.js: XXXXXX Redis connection successful. Response: ${result}`);
   }
 });
 
