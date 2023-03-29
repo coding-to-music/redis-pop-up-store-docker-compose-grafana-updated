@@ -171,3 +171,11 @@ SCAN 0 | awk '{print $1}' | while read key; do echo "$key: $(redis-cli get $key)
 ```
 
 This command will iterate over all the keys in the Redis database, retrieve the value of each key using the GET command, and print the key-value pair in the format key: value.
+
+## Redis port is changed to 7001 rather than 6379
+
+```
+docker-compose.yml
+provisioning/datasources/redis.yaml
+```
+
