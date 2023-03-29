@@ -52,5 +52,6 @@ services:
     depends_on:
       - redis
 
-    # grafana_data: 
-    #   - /var/lib/grafana
+volumes:
+  grafana_data:
+  
