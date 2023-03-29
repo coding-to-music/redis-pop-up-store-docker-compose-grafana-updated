@@ -16,7 +16,7 @@ services:
     command: redis-server /data/redis.conf --requirepass ${REDIS_PASSWORD} --user ${REDIS_USERNAME}
     volumes:
       - redis_data:/data
-      - ./redis.conf:/data/redis.conf
+      - ./redis.conf:/data/redis.conf:ro
 
   redis-insight:
     container_name: redis-insight
