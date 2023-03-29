@@ -92,3 +92,34 @@ npm run redis-cli
 ```
 docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' redis
 ```
+
+## View processes and what ports they are using via ss -ltnp
+
+```
+ss -ltnp
+```
+
+Output
+
+```
+State                        Recv-Q                       Send-Q            Local Address:Port         Peer Address:Port                       Process           
+LISTEN                       0                            511                   127.0.0.1:44335             0.0.0.0:*                           users:(("node",pid=80321,fd=18))                       
+LISTEN                       0                            4096                    0.0.0.0:111               0.0.0.0:*      
+LISTEN                       0                            4096              127.0.0.53%lo:53                0.0.0.0:*      
+LISTEN                       0                            128                     0.0.0.0:22                0.0.0.0:*      
+LISTEN                       0                            5                     127.0.0.1:631               0.0.0.0:*      
+LISTEN                       0                            4096                       [::]:111                  [::]:*      
+LISTEN                       0                            128                        [::]:22                   [::]:*      
+LISTEN                       0                            2            [::ffff:127.0.0.1]:3350                    *:*      
+LISTEN                       0                            2                             *:3389                    *:*    
+```
+
+## List Processes, Ports and PID
+
+```
+sudo netstat -nlp 
+```
+
+```
+sudo lsof -n -P -i +c 13
+```
