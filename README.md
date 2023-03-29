@@ -123,3 +123,23 @@ sudo netstat -nlp
 ```
 sudo lsof -n -P -i +c 13
 ```
+
+## Tail the logs for a particular container in Docker
+
+To tail the logs for a particular container in Docker, you can use the docker logs command with the -f option. The -f option enables you to follow the log output in real-time.
+
+Here's the command to tail the logs for a container named my_container:
+
+```
+docker logs -f my_container
+```
+
+You can replace my_container with the actual name of your container. If you don't know the name of the container, you can use the docker ps command to list all running containers and their names.
+
+If you want to see only the last n lines of the logs, you can use the -n option. For example, to see the last 50 lines of logs for my_container, you can run:
+
+```
+docker logs -f --tail 50 my_container
+```
+
+This will show you the last 50 lines of logs and continue to tail the logs in real-time.

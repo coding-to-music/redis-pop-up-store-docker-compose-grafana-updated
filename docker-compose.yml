@@ -46,9 +46,11 @@ services:
       - GF_AUTH_BASIC_ENABLED=false
       - GF_ENABLE_GZIP=true
       - GF_USERS_DEFAULT_THEME=dark
-    grafana_data: /var/lib/grafana
     volumes:
       - ./provisioning:/etc/grafana/provisioning
+      - grafana_data:/var/lib/grafana      
     depends_on:
       - redis
 
+    # grafana_data: 
+    #   - /var/lib/grafana
