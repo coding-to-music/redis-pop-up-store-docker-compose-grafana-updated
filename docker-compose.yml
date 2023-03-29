@@ -18,7 +18,7 @@ services:
     # environment:
     #   REDIS_PASSWORD: your_redis_password
     ports:
-      - "7001":"7001"
+      - "7001:7001"
 
   redis-insight:
     container_name: redis-insight
