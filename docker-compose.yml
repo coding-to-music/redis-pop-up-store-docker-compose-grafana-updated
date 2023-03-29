@@ -15,10 +15,9 @@ services:
   redis:
     container_name: redis
     image: redislabs/redismod
-    # environment:
-    #   REDIS_PASSWORD: your_redis_password
     ports:
-      - "7001:7001"
+      - "6380:6380"
+    command: redis-server --requirepass your_redis_password --user your_redis_username
 
   redis-insight:
     container_name: redis-insight
@@ -28,7 +27,7 @@ services:
     restart: always
     environment:
       - REDIS_0_HOST=redis
-      - REDIS_0_PORT=7001
+      - REDIS_0_PORT=6380
       - REDIS_0_PASSWORD=your_redis_password
       - REDIS_0_TLS=false
       - REDIS_0_NAME=MyRedis
