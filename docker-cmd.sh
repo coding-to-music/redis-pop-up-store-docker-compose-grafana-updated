@@ -52,15 +52,15 @@ redis-cli -h redis --intrinsic-latency 5
 
 # redis-cli --intrinsic-latency 5
 
-echo "Starting XXXXXXXYYYYYYYY"
+echo "docker-cmd.sh Starting XXXXXXXYYYYYYYY"
 
 # Install StreamReader for Time-Series
-cat gears/timeseries.py | redis-cli -x RG.PYEXECUTE
+cat gears/timeseries.py | redis-cli -h redis -x RG.PYEXECUTE
 
 # Install StreamReader for Orders
-cat gears/orders.py | redis-cli -x RG.PYEXECUTE
+cat gears/orders.py | redis-cli -h redis -x RG.PYEXECUTE
 
 # Run Simulation
-echo "Starting Customers & Orders simulation"
+echo "docker-cmd.sh Starting Customers & Orders simulation"
 # npm run simulation redis
 npm run simulation 
