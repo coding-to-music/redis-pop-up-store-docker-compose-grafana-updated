@@ -14,9 +14,9 @@ services:
     image: redislabs/redismod
     ports:
       - "${REDIS_PORT}:6380"
-    command: redis-server --requirepass ${REDIS_PASSWORD} --user ${REDIS_USERNAME}
+    command: redis-server /data/redis.conf --requirepass ${REDIS_PASSWORD} --user ${REDIS_USERNAME}
     volumes:
-      - ${REDIS_DATA_DIR}:/data
+      - redis_data:/data
       - ./redis.conf:/data/redis.conf
 
   redis-insight:
