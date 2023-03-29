@@ -12,12 +12,15 @@ services:
     depends_on:
       - redis
 
+version: '3.8'
+
+services:
   redis:
     container_name: redis
     image: redislabs/redismod
     ports:
-      - "6380:6380"
-    command: redis-server --requirepass your_redis_password --user your_redis_username
+      - "${REDIS_PORT}:6380"
+    command: redis-server --requirepass ${REDIS_PASSWORD} --user ${REDIS_USERNAME}
 
   redis-insight:
     container_name: redis-insight
@@ -27,8 +30,8 @@ services:
     restart: always
     environment:
       - REDIS_0_HOST=redis
-      - REDIS_0_PORT=6380
-      - REDIS_0_PASSWORD=your_redis_password
+      - REDIS_0_PORT=${REDIS_PORT}
+      - REDIS_0_PASSWORD=${REDIS_PASSWORD}
       - REDIS_0_TLS=false
       - REDIS_0_NAME=MyRedis
     depends_on:
@@ -51,6 +54,8 @@ services:
       - grafana_data:/var/lib/grafana      
     depends_on:
       - redis
+    command: >
+      sh -c "require('dotenv').config(); /run.sh"
 
 volumes:
   grafana_data:
