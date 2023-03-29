@@ -55,3 +55,6 @@ services:
 
 volumes:
   grafana_data:
+
+      # Uncomment to preserve Grafana configuration
+      # - ./data:/var/lib/grafana
