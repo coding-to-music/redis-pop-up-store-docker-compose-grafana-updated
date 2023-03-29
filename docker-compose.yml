@@ -1,4 +1,4 @@
-version: "3.5"
+version: '3.8'
 
 # networks:
 #   default:
@@ -11,8 +11,6 @@ services:
     image: ghcr.io/redisgrafana/pop-up-store:latest
     depends_on:
       - redis
-
-version: '3.8'
 
 services:
   redis:
