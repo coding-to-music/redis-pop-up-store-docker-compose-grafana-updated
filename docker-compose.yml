@@ -45,7 +45,8 @@ services:
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_BASIC_ENABLED=false
       - GF_ENABLE_GZIP=true
-      - GF_USERS_DEFAULT_THEME=light
+      - GF_USERS_DEFAULT_THEME=dark
+    grafana_data: /var/lib/grafana
     volumes:
       - ./provisioning:/etc/grafana/provisioning
     depends_on:
