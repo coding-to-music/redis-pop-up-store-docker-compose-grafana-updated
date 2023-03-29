@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.7'
 
 # networks:
 #   default:
@@ -19,7 +19,9 @@ services:
     ports:
       - "${REDIS_PORT}:6380"
     command: redis-server --requirepass ${REDIS_PASSWORD} --user ${REDIS_USERNAME}
-
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      
   redis-insight:
     container_name: redis-insight
     image: redislabs/redisinsight:latest
