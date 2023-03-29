@@ -142,4 +142,32 @@ If you want to see only the last n lines of the logs, you can use the -n option.
 docker logs -f --tail 50 my_container
 ```
 
-This will show you the last 50 lines of logs and continue to tail the logs in real-time.
+## This will show you the last 50 lines of logs and continue to tail the logs in real-time.
+
+To print all key-value pairs in the Redis database, you can use the following steps:
+
+### Use the SCAN command to iterate over all the keys in the database:
+
+```
+SCAN 0
+```
+
+The SCAN command returns a cursor value and an array of keys. Use the cursor value returned by the previous command as the argument to the next SCAN command to continue iterating over the keys:
+
+```
+SCAN <cursor-value>
+```
+
+For each key returned by the SCAN command, use the GET command to retrieve its value:
+
+```
+GET <key>
+```
+
+Putting it all together, you can use the following Redis command-line interface command to print all key-value pairs:
+
+```
+SCAN 0 | awk '{print $1}' | while read key; do echo "$key: $(redis-cli get $key)"; done
+```
+
+This command will iterate over all the keys in the Redis database, retrieve the value of each key using the GET command, and print the key-value pair in the format key: value.
