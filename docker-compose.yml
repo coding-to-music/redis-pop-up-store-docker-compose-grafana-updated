@@ -48,10 +48,10 @@ services:
       - GF_USERS_DEFAULT_THEME=dark
     volumes:
       - ./provisioning:/etc/grafana/provisioning
+      - ./dashboards:/var/lib/grafana/dashboards
       - grafana_data:/var/lib/grafana      
     depends_on:
       - redis
 
 volumes:
   grafana_data:
-  
