@@ -184,3 +184,44 @@ provisioning/datasources/redis.yaml
 ```
 docker logs redis
 ```
+
+Requirements
+
+
+.env 
+REDIS_PASSWORD=your_redis_password
+REDIS_USERNAME=your_redis_username
+REDIS_PORT=6380
+
+
+Grafana
+- provision data source
+- provision dashboard
+- use redis new port number, password
+
+pop-up-store-app
+- add console logging to gears scripts
+- RedisHost = 
+- REDIS_PORT 
+- REDIS_PASSWORD 
+
+Redis
+- internal port 6379
+- external port 6380 REDIS_PORT
+- REDIS_PASSWORD
+
+RedisInsight
+- port 8001
+- preset the data source
+- RedisHost = 
+- REDIS_PORT 
+- REDIS_PASSWORD
+
+RedisInsight UI
+- host = redis
+- port = REDIS_PORT
+- name = redis
+- password = REDIS_PASSWORD
+
+
+
