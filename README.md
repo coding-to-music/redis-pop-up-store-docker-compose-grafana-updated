@@ -185,13 +185,13 @@ provisioning/datasources/redis.yaml
 docker logs redis
 ```
 
-Requirements
+## Requirements
 
 
 .env 
-REDIS_PASSWORD=your_redis_password
-REDIS_USERNAME=your_redis_username
-REDIS_PORT=6380
+- REDIS_PASSWORD=your_redis_password
+- REDIS_USERNAME=your_redis_username
+- REDIS_PORT=6380
 
 
 Grafana
