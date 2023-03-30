@@ -36,12 +36,12 @@ redis.ping((err, result) => {
 
 console.log(`pop-up-store.js: XXXXXXZZZZZZZZ END redis.ping`);
 
-// const redisClient = new Redis({
-//   host: 'redis',
-//   port: 6379
-// });
+const redisClient = new Redis({
+  host: 'redis',
+  port: 6379
+});
 
-const redisClient = new Redis();
+// const redisClient = new Redis();
 
 console.log(`pop-up-store.js: XXXXXXZZZZZZZZ BEGIN redisClient.ping`);
 
