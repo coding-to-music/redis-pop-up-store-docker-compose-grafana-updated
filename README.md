@@ -179,3 +179,8 @@ docker-compose.yml
 provisioning/datasources/redis.yaml
 ```
 
+## view docker logs
+
+```
+docker logs redis
+```
