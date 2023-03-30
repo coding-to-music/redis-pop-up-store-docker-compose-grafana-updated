@@ -7,5 +7,7 @@ datasources:
     orgId: 1
     isDefault: true
     version: 1
-    url: redis://${REDIS_USERNAME}:${REDIS_PASSWORD}@redis:${REDIS_PORT}
+    url: redis:6379
     editable: true
+
+    # url: redis://${REDIS_USERNAME}:${REDIS_PASSWORD}@redis:${REDIS_PORT}
