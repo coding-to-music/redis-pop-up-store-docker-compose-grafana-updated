@@ -26,7 +26,8 @@ services:
       - "8001:8001"
     restart: always
     environment:
-      # - REDIS_0_HOST=redis
+      - REDIS_0_HOST=redis
+      - REDIS_0_PORT=6379
       # - REDIS_0_PORT=${REDIS_PORT}
       # - REDIS_0_PASSWORD=${REDIS_PASSWORD}
       - REDIS_0_TLS=false
